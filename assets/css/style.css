@@ -2,4 +2,11 @@
     width: 400px;
     height: 200px;
     background: lightblue;
+    visibility: hidden;
+}
+
+.test {
+    width: 400px;
+    visibility: hidden; 
+    display: block;
 }

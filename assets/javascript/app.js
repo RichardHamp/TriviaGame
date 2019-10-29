@@ -1,11 +1,14 @@
 window.onload = function () {
 
-    var time = 29
+    var time = 5;
+    var correct = 0;
+    var incorrect = 0;
+    var timeUps = 0;
 
     var q1 = {
-        question: "What's my name?",
-        answers: ['bill', 'jake', 'fred', 'rick'],
-        correct: ['rick']
+        question: "Do you know how to make a Redeye, young Mr. Flannagan?",
+        answers: ["I thought this was a game about drink trivia!", "Half a beer, shot of vodka, tomato juice, and a raw egg. Quit wasting my time.", "I don't do drinks from movies.", "I dunno...I stick to wine coolers."],
+        correct: ["Half a beer, shot of vodka, tomato juice, and a raw egg. Quit wasting my time."]
     }
 
     var q2 = {
@@ -25,11 +28,19 @@ window.onload = function () {
 
     //true and false 
     function true1() {
-        console.log("true");
+        correct ++;
+        document.getElementById("wins").innerHTML = (correct)
     }
 
     function false1() {
-        console.log("false");
+        incorrect ++;
+        document.getElementById("losses").innerHTML = (incorrect)
+        
+    }
+
+    function timesUp(){
+        timeUps ++;
+        document.getElementById("ties").innerHTML = (timeUps)
     }
 
     //timer counts down from 30
@@ -38,6 +49,9 @@ window.onload = function () {
         function f() {
             if (time > -1) {
                 document.getElementById('time').innerHTML = (time);
+                if (time === 0) {
+                    timesUp();
+                }
             }
             time--;
         }
@@ -51,10 +65,6 @@ window.onload = function () {
 
         $(".test").click(function () {
             i=q1;
-        console.log(this);
-        console.log(this.innerHTML);
-        console.log(i)
-        console.log((i).correct);
             if (this.innerHTML==((i).correct)) {
                 true1();
             }
@@ -62,6 +72,8 @@ window.onload = function () {
                 false1();
             }
         });
-
+        document.getElementById('start').style.visibility = "hidden";
+        document.getElementById('startB').style.height = 0;
+        document.getElementById('qDiv').style.visibility = "visible";
     });
 }

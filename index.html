@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="assets/javascript/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-<body>
-    <button id=start>START</button>
-    <div id=time>30</div>
 
-    <div id=qDiv></div>
-    <br>
-    <button class="test" id=aDiv1></button>
-    <br>
-    <button class="test" id=aDiv2></button>
-    <br>
-    <button class="test" id=aDiv3></button>
-    <br>
-    <button class="test" id=aDiv4></button>
+<body>
+    <div class="container-fluid">
+            <div class="row justify-content-center" id="timeC">
+                    <div class="col-4" id="time">30</div>
+                    <div class="row justify-content-end" id="scores">
+            <h4>Correct Guesses <span class="badge badge-secondary responsive" id=wins>0</span></h4>
+            <h4>Wrong Guesses: <span class="badge badge-secondary responsive" id=losses>0</span></h4>
+            <h4>Time Ups: <span class="badge badge-secondary responsive" id=ties>0</span></h4>
+        </div></div>
+
+        <div class="row" id="startB">
+            <button id="start">START</button>
+        </div>
+
+        <div class="row" id="question">
+            <h2 id="qDiv"></h2>
+        </div>
+        <br>
+        <div class="container-fluid" id="answers">
+            <div class="row">
+                <button class="test btn-danger" id=aDiv1></button>
+            </div>
+            <br>
+            <div class="row">
+                <button class="test btn-danger" id=aDiv2></button>
+            </div>
+            <br>
+            <div class="row">
+                <button class="test btn-danger" id=aDiv3></button>
+            </div>
+            <br>
+            <div class="row">
+                <button class="test btn-danger" id=aDiv4></button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

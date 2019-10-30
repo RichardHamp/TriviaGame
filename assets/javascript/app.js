@@ -1,3 +1,5 @@
+//forcing push
+
 window.onload = function () {
 
     var time = 5;
@@ -27,9 +29,17 @@ window.onload = function () {
     }
 
     //true and false 
-    function true1() {
+    function true1(i) {
+        console.log(i);
         correct ++;
         document.getElementById("wins").innerHTML = (correct)
+        document.getElementById('time').style.visibility = "hidden"
+        document.getElementById('qDiv').innerHTML = '<div style="width:50%;height:0;padding-bottom:40%;position:relative;"><iframe src="assets/images/cocktail.mp4?autoplay=1&loop=1&autopause=0" width="100%" height="100%" style="position:absolute" frameBorder="0"></iframe></div><p>Correct. NICE JOB!!! ... lush</p>'
+        for (j = 4; j > 0; j--) { 
+              var element = document.getElementById('aDiv' + [j]);
+              element.parentNode.removeChild(element);
+        }
+        console.log(element);
     }
 
     function false1() {
@@ -66,10 +76,10 @@ window.onload = function () {
         $(".test").click(function () {
             i=q1;
             if (this.innerHTML==((i).correct)) {
-                true1();
+                true1(i);
             }
             else {
-                false1();
+                false1(i);
             }
         });
         document.getElementById('start').style.visibility = "hidden";

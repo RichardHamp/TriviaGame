@@ -20,14 +20,41 @@
             <div class="row justify-content-end" id="scores">
                 <h4>Correct Guesses <span class="badge badge-secondary responsive" id=wins>0</span></h4>
                 <h4>Wrong Guesses: <span class="badge badge-secondary responsive" id=losses>0</span></h4>
-                <h4>Time Ups: <span class="badge badge-secondary responsive" id=ties>0</span></h4>
+                <h4>Time Ups: <span class="badge badge-secondary responsive" id=timeup>0</span></h4>
             </div>
         </div>
 
-        <div class="row" id="startB">
+        <div class="container">
+            <div class="header text-center clearfix">
+              <h1 class="text-muted">Make Me A Drink</h1>
+            </div>
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+              <div id="game">
+                <h2>Make Me a Drink</h2>
+                <p id="remaining-time" class="lead">Remaining Time: <span id="timer"></span></p>
+                <p id="question" class="lead"></p>
+              </div>
+              <div id="results">
+              </div>
+            </div>
+      
+            <div class="row">
+              <div id="choices" class="text-center">
+                <button id="start" class="btn btn-info btn-lg">Start Game</button>
+                <div id="options">
+                  
+                </div>
+                
+              </div>
+            </div>
+      
+          </div>
+          
+        <!-- <div class="row" id="startB">
             <button id="start">START</button>
         </div>
-        <!-- forcing push -->
+        forcing push
         <div class="row" id="question">
             <h2 id="qDiv"></h2>
         </div>
@@ -49,7 +76,7 @@
                 <button class="test btn-danger" id=aDiv4></button>
             </div>
         </div>
-    </div>
+    </div>-->
 </body>
 
 </html>

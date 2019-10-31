@@ -1,5 +1,3 @@
-//forcing push
-
 window.onload = function () {
 
     var time = 5;

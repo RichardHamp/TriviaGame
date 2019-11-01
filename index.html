@@ -1,83 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trivia Game</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bartender Trivia Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="assets/javascript/app.js"></script>
-   
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>  
+  </head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row justify-content-center" id="timeC">
-            <div class="col-4" id="time">30</div>
-            <div class="row justify-content-end" id="scores">
-                <h4>Correct Guesses <span class="badge badge-secondary responsive" id=wins>0</span></h4>
-                <h4>Wrong Guesses: <span class="badge badge-secondary responsive" id=losses>0</span></h4>
-                <h4>Time Ups: <span class="badge badge-secondary responsive" id=timeup>0</span></h4>
-            </div>
-        </div>
-
+  <body>
+    <div class="container">
+      <div class="header text-center">
+        <h1>Pour Me Another Trivia</h1>
+      </div>
+      <div class="jumbotron jumbotron-fluid" id="box">
         <div class="container">
-            <div class="header text-center clearfix">
-              <h1 class="text-muted">Make Me A Drink</h1>
-            </div>
-            <div class="jumbotron jumbotron-fluid">
-              <div class="container">
-              <div id="game">
-                <h2>Make Me a Drink</h2>
-                <p id="remaining-time" class="lead">Remaining Time: <span id="timer"></span></p>
-                <p id="question" class="lead"></p>
-              </div>
-              <div id="results">
-              </div>
-            </div>
-      
-            <div class="row">
-              <div id="choices" class="text-center">
-                <button id="start" class="btn btn-info btn-lg">Start Game</button>
-                <div id="options">
-                  
-                </div>
-                
-              </div>
-            </div>
-      
-          </div>
-          
-        <!-- <div class="row" id="startB">
-            <button id="start">START</button>
+        <div id="game" class ="text-center">
+          <p id="countdown">Countdown: <span id="timer"></span></p>
+          <p id="question" class ="text-center"></p>
         </div>
-        forcing push
-        <div class="row" id="question">
-            <h2 id="qDiv"></h2>
+        <div id="final" class ="text-center">
         </div>
-        <br>
-        <div class="container-fluid" id="answers">
-            <div class="row">
-                <button class="test btn-danger" id=aDiv1></button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="test btn-danger" id=aDiv2></button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="test btn-danger" id=aDiv3></button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="test btn-danger" id=aDiv4></button>
-            </div>
+      </div>
+      <div class="row">
+          <button id="start" class="btn">Start Drinking!</button>
+          <div id="answersH" class="text-center">
         </div>
-    </div>-->
-</body>
-
+      </div>
+    </div>
+  </body>
 </html>

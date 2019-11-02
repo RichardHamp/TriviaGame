@@ -5,7 +5,7 @@ body{
 	font-family: cursive;
 }
 
-h1{
+h1{ /*title*/
 	font-weight: 700;
 	background: rgba(253, 215, 1, 0.795);
 	width: 45%;
@@ -13,7 +13,7 @@ h1{
 	margin-right: auto;
 }
 
-h3{
+h3{ /*announcements in game*/
 	font-weight: 700;
 	background: rgba(0, 255, 76, 0.66);
 	width: 75%;
@@ -24,24 +24,9 @@ h3{
     font-family: cursive;
 }
 
-#final {
+#final { /* final page */
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.option{
-  	margin: 15px;
-  	display: inline-block;
-    width: 100%;
-    padding:10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 600;
-    font-size: 100%;
-    background: rgba(4,164,156,0.66);
-    border: 10px groove rgba(4,164,156,0.66);
-    border-radius: 40px 0px 40px 0px;
-    font-family: cursive;
 }
 
 #question {
@@ -57,7 +42,7 @@ h3{
     font-family: cursive;
 }
 
-.test {
+.option { /* possible answer buttons */
     width: 80%;
 	display: inline-block;
     margin-left: auto;
@@ -103,7 +88,7 @@ h3{
     font-family: cursive;
 }
 
-#answersH {
+#answersH { /*answer button container */
     width: 80%;
     margin-left: auto;
     margin-right: auto;

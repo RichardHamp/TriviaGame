@@ -1,10 +1,11 @@
 $(document).ready(function () {
-    $('#question').hide();
+    $('#question').hide(); 
     $("#remaining-time").hide();
     $("#start").on('click', bartender.startGame);
-    $(document).on('click', '.option', bartender.guessChecker);
+    $(document).on('click', '.option', bartender.check); //runs function check on click of one of the answer buttons
   })
-  
+
+//Initial variables
   var bartender = {
     correct: 0,
     incorrect: 0,
@@ -23,7 +24,7 @@ $(document).ready(function () {
     },
     answers: {
       q1: ["I thought this was a game about drink trivia!", "Half a beer, shot of vodka, tomato juice, and a raw egg. Quit wasting my time.", "I don't do drinks from movies.", "I dunno...I stick to wine coolers."],
-      q2: ["Bit less than a shot of Kahlua, shot and a half of vodka, shot of cream", "The dude made it with non-dairy creamer, so I do that too.", "Shot of vodka, splash of creme de cacao, fill the rest of a tumbler with half and half", "I'm not a red commie, so don't drink that stuff."],
+      q2: ["Bit less than a shot of Kahlua, shot and a half of vodka, shot of cream", "The Dude made it with non-dairy creamer, so I do that too.", "Shot of vodka, splash of creme de cacao, fill the rest of a tumbler with half and half", "I'm not a red commie, so don't drink that stuff."],
       q3: ["Make it again, Sam. Just one last time.", "Shot of gin, less than a shot of lemon, shot of simple syrup, fill rest of glass with champagne", "Drink me. Drink me as if it were the last time.", "3 oz red wine. Shot of peppermint schnapps. Shot of grenadine."],   q4: ["Boba", "Duff", "Sorry, kid, we only make keys here.", "Flannigan's"],
       q4: ["Boba", "Duff", "Sorry, kid, we only make keys here.", "Flannigan's"],
       q5: ["Shot of desperation and a dash of bro sweat", "Angel tears and ground up unicorn horn for the bite at the end", "Mostly a parent's waste of hard work and sweat saving up a college fund.", "Bra! Don't care! Bottoms up before heading back to the frat. Bros forevah!"],
@@ -37,6 +38,7 @@ $(document).ready(function () {
     },
   
     startGame: function () {
+ //resets all variables before calling function questionNext
       bartender.currentSet = 0;
       bartender.correct = 0;
       bartender.incorrect = 0;
@@ -48,45 +50,38 @@ $(document).ready(function () {
       $('#start').hide();
       $('#countdown').show();
       $('#question').show();
-      bartender.nextQuestion();
+      bartender.questionNext();
     },
   
-    nextQuestion: function () {
-  
-      bartender.timer = 10;
-      $('#timer').removeClass('last-seconds');
+    questionNext: function () {//sets timer to 10 seconds
+      bartender.timer = 10; 
       $('#timer').text(bartender.timer);
-  
       if (!bartender.timerOn) {
         bartender.timerId = setInterval(bartender.timerRunning, 1000);
       }
-  
+
       var barQuestions = Object.values(bartender.questions)[bartender.currentSet];
       $('#question').text(barQuestions);
-  
+
       var possAnswers = Object.values(bartender.answers)[bartender.currentSet];
-  
       $.each(possAnswers, function (index, key) {
-        $('#answersH').append($('<button class="option btn btn-info btn-lg test">' + key + '</button>'));
+        $('#answersH').append($('<button class="option btn btn-info btn-lg">' + key + '</button>'));
       })
   
     },
   
-    timerRunning: function () {
+    timerRunning: function () {//countdown
       if (bartender.timer > -1 && bartender.currentSet < Object.keys(bartender.questions).length) {
         $('#timer').text(bartender.timer);
         bartender.timer--;
-        if (bartender.timer === 4) {
-          $('#timer').addClass('last-seconds');
-        }
       }
   
-      else if (bartender.timer === -1) {
+      else if (bartender.timer === -1) {//out of time
         bartender.unanswered++;
         bartender.result = false;
         clearInterval(bartender.timerId);
-        resultId = setTimeout(bartender.guessResult, 1000);
-        $('#final').html('<h3>Out of time! The answer was ' + Object.values(bartender.correctA)[bartender.currentSet] + '</h3>');
+        resultId = setTimeout(bartender.guessResult, 3000);
+        $('#final').html('<h3>Out of time! The answer was: ' + Object.values(bartender.correctA)[bartender.currentSet] + '</h3>');
       }
   
       else if (bartender.currentSet === Object.keys(bartender.questions).length) {
@@ -101,29 +96,29 @@ $(document).ready(function () {
       }
     },
   
-    guessChecker: function () {
+    check: function () {//checks answer
       var resultId;
       var currentAnswer = Object.values(bartender.correctA)[bartender.currentSet];
       if ($(this).text() === currentAnswer) {
         $(this).addClass('btn-success').removeClass('btn-info');
         bartender.correct++;
         clearInterval(bartender.timerId);
-        resultId = setTimeout(bartender.guessResult, 1000);
+        resultId = setTimeout(bartender.guessResult, 3000);
         $('#final').html('<h3>Nicely done! Another round!</h3>');
       }
       else {
         $(this).addClass('btn-danger').removeClass('btn-info');
         bartender.incorrect++;
         clearInterval(bartender.timerId);
-        resultId = setTimeout(bartender.guessResult, 2000);
-        $('#final').html('<h3>You ain' + "'" + 't much of a bartender! The real answer is :" ' + currentAnswer + '</h3>');
+        resultId = setTimeout(bartender.guessResult, 3000);
+        $('#final').html('<h3>You ain' + "'" + 't much of a bartender! The real answer is: '+currentAnswer+'</h3>');
       }
     },
   
-    guessResult: function () {
+    guessResult: function () {//clears current question and moves on to next
       bartender.currentSet++;
       $('.option').remove();
       $('#final h3').remove();
-      bartender.nextQuestion();
+      bartender.questionNext();
     }
   }

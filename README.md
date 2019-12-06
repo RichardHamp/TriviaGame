@@ -14,3 +14,7 @@ Check it out here: https://fozzie77.github.io/TriviaGame/
 
 * Bootstrap
 * JQuery
+
+# Primary Issues Faced: 
+
+Incorporating media into each question proved to be very challenging for me. Though I did have it working somewhat, it wasn't as clean as I wanted so, unfortunately, was left out of the final project.
